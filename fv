@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# FV
+# Simon H Moore
+#
+# Find directories to cd into using fzf.
+# You can choose max depth of directory in first argument.
+# Default max depth is 7.
+# 
+# For it to function proparly you need to source this script into your bash
+# using ". fcd", for ease of use you can make an alias (alias fcd=". fcd").
+
+[ $1 ] && depth="$1" || depth="7"
+
+choice="$(find ./ -maxdepth "$depth" -name .git -prune -o -type f -print 2>/dev/null\
+            | fzf --preview='cat {}' --preview-window=up:60%:wrap)" || exit
+
+${EDITOR:-vim} "$choice"
