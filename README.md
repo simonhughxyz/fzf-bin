@@ -1,5 +1,5 @@
 # fzf-bin
-A collection of scripts using the fantastic fzf utility (https://github.com/junegunn/fzf).
+A collection of scripts using the fantastic [fzf utility](https://github.com/junegunn/fzf).
 
 | Script Name   | Language | Description                    |
 |:--------------|:---------|:-------------------------------|
@@ -11,7 +11,7 @@ A collection of scripts using the fantastic fzf utility (https://github.com/june
 
 
 ## Install
-First you have to install the fzf utility from https://github.com/junegunn/fzf.
+First you have to install the [fzf utility](https://github.com/junegunn/fzf).
 Either install it manually or it should be available in most repositories.
 
 Then clone this repo:
