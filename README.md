@@ -2,7 +2,7 @@
 A collection of scripts using the fantastic fzf utility (https://github.com/junegunn/fzf).
 
 | Script Name   | Language | Description                    |
-|:--------------|:--------_-|:-------------------------------|
+|:--------------|:---------|:-------------------------------|
 | `fconf`       | Shell    | Open config file in vim.       |
 | `fgb`         | Shell    | Checkout in chosen git branch. |
 | `fkill`       | Shell    | Kill chosen process.           |
