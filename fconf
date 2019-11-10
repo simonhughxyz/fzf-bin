@@ -1,5 +1,11 @@
 #!/bin/sh
 
+# FCONF
+# Simon H Moore
+# 
+# Gives a list of config files top open with vim
+# 
+# Requires fzf and vim to work
 choice="$(find ~/.dotfiles/ -path ~/.dotfiles/.git -prune -o -type f -print | fzf --preview='cat {}' --preview-window=up:60%:wrap)" || exit
 
 vim "$choice" && exit
