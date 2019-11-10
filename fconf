@@ -3,12 +3,12 @@
 # FCONF
 # Simon H Moore
 # 
-# Gives a list of config files top open with vim
+# Gives a list of config files top open with $EDITOR
 # 
-# Requires fzf and vim to work
+# Requires fzf and $EDITOR to be set to work
 
 # get config file from fzf
 choice="$(find ~/.dotfiles/ -path ~/.dotfiles/.git -prune -o -type f -print | fzf --preview='cat {}' --preview-window=up:60%:wrap)" || exit
 
-# open config file in vim
-vim "$choice" && exit
+# open config file in $EDITOR
+$EDITOR "$choice" && exit
