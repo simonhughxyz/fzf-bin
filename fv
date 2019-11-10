@@ -7,7 +7,7 @@
 # You can choose max depth of directory in first argument.
 # Default max depth is 7.
 # 
-# For it to function proparly you need to source this script into your bash
+# For it to work properly you need to source this script into your bash
 # using ". fcd", for ease of use you can make an alias (alias fcd=". fcd").
 
 [ $1 ] && depth="$1" || depth="7"
