@@ -1,3 +1,5 @@
 #!/bin/sh
 
-ps --no-header -axo pid,user,command | fzf
+pid=$(ps aux | fzf -m --preview="ps -p {2}" --preview-window=down:3 | awk '{print $2}') || exit
+
+echo "$pid"
