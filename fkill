@@ -1,5 +1,5 @@
 #!/bin/sh
 
-pid=$(ps aux | sed 1d | fzf -m --preview="ps -p {2}" --preview-window=down:2 | awk '{print $2}') || exit
+pid=$(ps aux | sed 1d | fzf -m --preview="ps -p {2}" --preview-window=down:2 | awk '{print $2}') && exit
 
-echo "$pid"
+kill -9 "$pid"
