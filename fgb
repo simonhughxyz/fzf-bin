@@ -1,6 +1,16 @@
 #!/bin/sh
 
+# FGB
+# Simon H Moore
+# 
+# Checkout to chosen git branch using fzf
+
+# Get list of branches
 branches=$(git --no-pager branch -vv) &&
+
+# choose branch using fzf
 branch=$(echo "$branches" | fzf +m) &&
+
+# checkout branch
 git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 
