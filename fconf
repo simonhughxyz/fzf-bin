@@ -7,8 +7,10 @@
 # 
 # Requires fzf and $EDITOR to be set to work
 
+# location of config/dotfiles
 dotfiles=~/.dotfiles
 
+# cd into dotfiles to avoid having full path for every choice in fzf
 cd $dotfiles
 
 # get config file from fzf
