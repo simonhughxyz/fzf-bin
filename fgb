@@ -9,7 +9,7 @@
 branches=$(git --no-pager branch -vv) &&
 
 # choose branch using fzf
-branch=$(echo "$branches" | fzf +m --preview="git diff --color ..{1}") &&
+branch=$(echo "$branches" | fzf +m --preview="git diff --color ..{1}" --preview-window=right:30%) &&
 
 # checkout branch
 git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
