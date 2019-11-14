@@ -23,10 +23,8 @@ get_files(){
 # get max depth to traverse for files.
 [ $1 ] && depth="$1" || depth="5"
 
-files=$(get_files)
-
 # get choice of file from fzf
-choice="$(echo "$files" | fzf --preview='cat {}' --preview-window=up:60%:wrap)" || exit
+choice="$(get_files | fzf --preview='cat {}' --preview-window=up:60%:wrap)" || exit
 
 # open file in $EDITOR or vim
 ${EDITOR:-vim} "$choice"
