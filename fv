@@ -3,10 +3,15 @@
 # FV
 # Simon H Moore
 #
-# Find files and open them in vim
+# Find files and open them in your editor (vim is used if $EDITOR not set).
+# 
 # You can choose max depth of directory in first argument.
 # Default max depth is 5.
+# 
+# Will use the fantastic fd (https://github.com/sharkdp/fd) utility if available
+# otherwise it will default back to find.
 
+# returns list of files
 get_files(){
     if command -v fd > /dev/null; then
         fd . -d "$depth" -t f
@@ -15,10 +20,13 @@ get_files(){
     fi
 }
 
+# get max depth to traverse for files.
 [ $1 ] && depth="$1" || depth="5"
 
 files=$(get_files)
 
+# get choice of file from fzf
 choice="$(echo "$files" | fzf --preview='cat {}' --preview-window=up:60%:wrap)" || exit
 
+# open file in $EDITOR or vim
 ${EDITOR:-vim} "$choice"
