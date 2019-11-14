@@ -3,16 +3,22 @@
 # FV
 # Simon H Moore
 #
-# Find directories to cd into using fzf.
+# Find files and open them in vim
 # You can choose max depth of directory in first argument.
-# Default max depth is 7.
-# 
-# For it to work properly you need to source this script into your bash
-# using ". fcd", for ease of use you can make an alias (alias fcd=". fcd").
+# Default max depth is 5.
 
-[ $1 ] && depth="$1" || depth="7"
+get_files(){
+    if command -v fd > /dev/null; then
+        fd . -d "$depth" -t f
+    else
+        find ./ -maxdepth "$depth" -name .git -prune -o -type f -print 2>/dev/null
+    fi
+}
 
-choice="$(find ./ -maxdepth "$depth" -name .git -prune -o -type f -print 2>/dev/null\
-            | fzf --preview='cat {}' --preview-window=up:60%:wrap)" || exit
+[ $1 ] && depth="$1" || depth="5"
+
+files=$(get_files)
+
+choice="$(echo "$files" | fzf --preview='cat {}' --preview-window=up:60%:wrap)" || exit
 
 ${EDITOR:-vim} "$choice"
