@@ -14,7 +14,7 @@ dotfiles=~/.dotfiles
 cd $dotfiles
 
 # get config file from fzf
-choice="$(find ./*/ -path ~/.dotfiles/.git -prune -o -type f -print | fzf --prompt="$dotfiles" --preview="cat {}" --preview-window=up:60%:wrap)" || exit
+choice="$(find ./*/ -path ~/.dotfiles/.git -prune -o -type f -print | fzf --prompt="$dotfiles/" --preview="cat {}" --preview-window=up:60%:wrap)" || exit
 
 # open config file in $EDITOR
 $EDITOR "$choice" && exit
