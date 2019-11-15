@@ -14,7 +14,7 @@
 # returns list of files
 get_files(){
     if command -v fd > /dev/null; then
-        fd . -d "$depth" -t f
+        fd . -d "$depth" -t f -x file {} | grep 'ASCII text'
     else
         find ./ -maxdepth "$depth" -name .git -prune -o -type f -print 2>/dev/null
     fi
