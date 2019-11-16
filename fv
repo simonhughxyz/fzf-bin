@@ -13,11 +13,11 @@
 
 # returns list of files
 get_files(){
-    # if command -v fd > /dev/null; then
-    #     fd . -d "$depth" -t f -x file {} | grep 'ASCII text'
-    # else
+    if command -v fd > /dev/null; then
+        fd . -d "$depth" -t f -x file {} | grep 'ASCII text'
+    else
         find ./ -maxdepth "$depth" -name .git -prune -o -type f -exec file {} \; 2>/dev/null | grep 'ASCII text'
-    # fi
+    fi
 }
 
 # get max depth to traverse for files.
