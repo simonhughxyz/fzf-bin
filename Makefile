@@ -8,3 +8,7 @@ install:
 	@echo "Installing fzf-bin..."
 	@cp -p fdot $(PREFIX)/fdot
 	@chmod 755 $(PREFIX)/fdot
+
+uninstall:
+	@echo "Uninstalling fzf-bin..."
+	@rm -f $(PREFIX)/fdot
