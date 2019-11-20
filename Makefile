@@ -34,6 +34,7 @@ uninstall_%: $(PREFIX)/%
 	@rm -vf $<
 
 ## variables		: Print variables.
+.PHONY: variables
 variables:
 	@echo PREFIX: $(PREFIX)
 	@echo SRC: $(SRC)
