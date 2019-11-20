@@ -5,8 +5,10 @@ OBJ := $(patsubst %.sh, $(PREFIX)/%, $(SRC))
 
 .PHONY: all
 all:
-	@echo "Run 'make install' to install fzf-bin."
+	@echo "Run 'make install' to install all scripts."
+	@echo
 	@echo "Run 'make SCRIPT' to install individual scripts."
+	@echo "For example: 'make fgb' to install the fgb script."
 
 ## install		: Install all scripts.
 .PHONY: install
