@@ -14,9 +14,12 @@ A collection of scripts using the fantastic [fzf utility](https://github.com/jun
 First you have to install the [fzf utility](https://github.com/junegunn/fzf).
 Either install it manually or it should be available in most repositories.
 
-Then clone this repo:
+Then clone the repo and run make install (you will likely have to run make install as sudo)
+```A shell
+git clone https://github.com/simonhughcom/fzf-bin.git && sudo make install
 ```
-git clone https://github.com/simonhughcom/fzf-bin.git
+You can also install individual scripts by running `make install` followed by the script name without the `.sh` extension. For example:
+``` shell
+sudo make install fgb
 ```
 
-Finally give the scripts execution permission and make them available on your PATH.
