@@ -12,7 +12,7 @@ all:
 
 ## install		: Install all scripts.
 .PHONY: install
-install: $(basename $(SRC))
+install: install_$(basename $(SRC))
 	@echo
 	@echo "Finished installing fzf-bin!"
 
@@ -23,7 +23,7 @@ uninstall: $(OBJ)
 	@rm -vf $(OBJ)
 
 ## SCRIPT			: Install individual script.
-%: %.sh
+install_%: %.sh
 	@echo "Installing $@..."
 	@cp -vp $< $(PREFIX)/bin/$@
 	@chmod 755 $(PREFIX)/$@
