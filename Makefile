@@ -7,8 +7,8 @@ OBJ := $(patsubst %.sh, $(PREFIX)/bin/%, $(SRC))
 all:
 	@echo "Run 'make install' to install all scripts."
 	@echo
-	@echo "Run 'make SCRIPT' to install individual scripts."
-	@echo "For example: 'make fgb' to install the fgb script."
+	@echo "Run 'make install_SCRIPT' to install individual scripts."
+	@echo "For example: 'make install_fgb' to install the fgb.sh script."
 
 ## install		: Install all scripts.
 .PHONY: install
@@ -22,7 +22,7 @@ uninstall: $(OBJ)
 	@echo "Uninstalling fzf-bin..."
 	@rm -vf $(OBJ)
 
-## SCRIPT			: Install individual script.
+## install_SCRIPT		: Install individual script.
 install_%: %.sh
 	@echo "Installing $@..."
 	@cp -vp $< $(PREFIX)/bin/$(basename $<)
