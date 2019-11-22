@@ -42,4 +42,4 @@ variables:
 
 .PHONY: help
 help: Makefile
-	@sed -n 's/^##//p' $< | awk -F':' '{printf "%-30s: %s\n", $$1, $$2'}
+	@sed -n 's/^## //p' $< | awk -F':' '{printf "%-30s: %s\n", $$1, $$2'}
