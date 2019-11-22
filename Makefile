@@ -1,5 +1,5 @@
 
-PREFIX := /usr/local/bin
+PREFIX := /usr/local
 SRC := $(wildcard *.sh)
 OBJ := $(patsubst %.sh, $(PREFIX)/%, $(SRC))
 
@@ -25,11 +25,11 @@ uninstall: $(OBJ)
 ## SCRIPT			: Install individual script.
 %: %.sh
 	@echo "Installing $@..."
-	@cp -vp $< $(PREFIX)/$@
+	@cp -vp $< $(PREFIX)/bin/$@
 	@chmod 755 $(PREFIX)/$@
 
 ## uninstall_SCRIPT	: Uninstall individual script.
-uninstall_%: $(PREFIX)/%
+uninstall_%: $(PREFIX)/bin/%
 	@echo "Uninstalling $<..."
 	@rm -vf $<
 
