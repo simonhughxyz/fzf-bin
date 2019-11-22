@@ -1,7 +1,7 @@
 
 PREFIX := /usr/local
 SRC := $(wildcard *.sh)
-OBJ := $(patsubst %.sh, $(PREFIX)/%, $(SRC))
+OBJ := $(patsubst %.sh, $(PREFIX)/bin/%, $(SRC))
 
 .PHONY: all
 all:
@@ -12,7 +12,7 @@ all:
 
 ## install		: Install all scripts.
 .PHONY: install
-install: install_$(basename $(SRC))
+install: $(patsubst %.sh, install_%, $(SRC))
 	@echo
 	@echo "Finished installing fzf-bin!"
 
@@ -25,8 +25,8 @@ uninstall: $(OBJ)
 ## SCRIPT			: Install individual script.
 install_%: %.sh
 	@echo "Installing $@..."
-	@cp -vp $< $(PREFIX)/bin/$@
-	@chmod 755 $(PREFIX)/$@
+	@cp -vp $< $(PREFIX)/bin/$(basename $<)
+	@chmod 755 $(PREFIX)/bin/$(basename $<)
 
 ## uninstall_SCRIPT	: Uninstall individual script.
 uninstall_%: $(PREFIX)/bin/%
