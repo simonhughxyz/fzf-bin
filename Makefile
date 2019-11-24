@@ -1,6 +1,6 @@
 PREFIX := /usr/local
-SRC := $(wildcard *.sh)
-INSTALL_PATH := $(patsubst %.sh, $(PREFIX)/bin/%, $(SRC))
+SRC := $(wildcard ./src/*.sh)
+INSTALL_PATH := $(patsubst ./src/%.sh, $(PREFIX)/bin/%, $(SRC))
 
 .PHONY: all
 all:
@@ -11,7 +11,7 @@ all:
 
 ## install : Install all scripts.
 .PHONY: install
-install: $(patsubst %.sh, install_%, $(SRC))
+install: $(patsubst ./src/%.sh, install_%, $(SRC))
 	@echo
 	@echo "Finished installing fzf-bin!"
 
@@ -22,10 +22,10 @@ uninstall: $(INSTALL_PATH)
 	@rm -vf $(INSTALL_PATH)
 
 ## install_SCRIPT : Install individual script.
-install_%: %.sh
+install_%: ./src/%.sh
 	@echo "Installing $@..."
-	@cp -vp $< $(PREFIX)/bin/$(basename $<)
-	@chmod 755 $(PREFIX)/bin/$(basename $<)
+	@cp -vp $< $(PREFIX)/bin/$(notdir $(basename $<))
+	@chmod 755 $(PREFIX)/bin/$(notdir $(basename $<))
 
 ## uninstall_SCRIPT : Uninstall individual script.
 uninstall_%: $(PREFIX)/bin/%
