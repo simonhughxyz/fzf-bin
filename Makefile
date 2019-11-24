@@ -1,7 +1,6 @@
-
 PREFIX := /usr/local
 SRC := $(wildcard *.sh)
-INSTALLED := $(patsubst %.sh, $(PREFIX)/bin/%, $(SRC))
+INSTALL_PATH := $(patsubst %.sh, $(PREFIX)/bin/%, $(SRC))
 
 .PHONY: all
 all:
@@ -18,9 +17,9 @@ install: $(patsubst %.sh, install_%, $(SRC))
 
 ## uninstall : Uninstall all scripts.
 .PHONY: uninstall
-uninstall: $(INSTALLED)
+uninstall: $(INSTALL_PATH)
 	@echo "Uninstalling fzf-bin..."
-	@rm -vf $(INSTALLED)
+	@rm -vf $(INSTALL_PATH)
 
 ## install_SCRIPT : Install individual script.
 install_%: %.sh
@@ -38,7 +37,7 @@ uninstall_%: $(PREFIX)/bin/%
 variables:
 	@echo PREFIX: $(PREFIX)
 	@echo SRC: $(SRC)
-	@echo INSTALLED: $(INSTALLED)
+	@echo INSTALL_PATH: $(INSTALL_PATH)
 
 .PHONY: help
 help: Makefile
