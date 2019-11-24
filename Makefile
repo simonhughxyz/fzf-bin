@@ -1,17 +1,18 @@
 PREFIX := /usr/local
-SRC := $(wildcard ./src/*.sh)
-INSTALL_PATH := $(patsubst ./src/%.sh, $(PREFIX)/bin/%, $(SRC))
+SRC_PREFIX := ./src
+SRC := $(patsubst $(SRC_PREFIX)/%, %, $(wildcard ./src/*.sh))
+INSTALL_PATH := $(patsubst %.sh, $(PREFIX)/bin/%, $(SRC))
 
 .PHONY: all
 all:
 	@echo "Run 'make install' to install all scripts."
 	@echo
 	@echo "Run 'make install_SCRIPT' to install individual scripts."
-	@echo "For example: 'make install_fgb' to install the fgb.sh script."
+	@echo "For example: 'make install_$(word 1, $(SRC))' to install the $(word 1, $(SRC)) script."
 
 ## install : Install all scripts.
 .PHONY: install
-install: $(patsubst ./src/%.sh, install_%, $(SRC))
+install: $(patsubst %, install_%, $(SRC))
 	@echo
 	@echo "Finished installing fzf-bin!"
 
@@ -22,13 +23,13 @@ uninstall: $(INSTALL_PATH)
 	@rm -vf $(INSTALL_PATH)
 
 ## install_SCRIPT : Install individual script.
-install_%: ./src/%.sh
+install_%: $(SRC_PREFIX)/%
 	@echo "Installing $@..."
 	@cp -vp $< $(PREFIX)/bin/$(notdir $(basename $<))
 	@chmod 755 $(PREFIX)/bin/$(notdir $(basename $<))
 
 ## uninstall_SCRIPT : Uninstall individual script.
-uninstall_%: $(PREFIX)/bin/%
+uninstall_%: $(PREFIX)/bin/$(basename %)
 	@echo "Uninstalling $<..."
 	@rm -vf $<
 
