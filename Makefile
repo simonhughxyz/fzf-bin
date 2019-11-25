@@ -43,6 +43,7 @@ variables:
 	@echo SRC: $(SRC)
 	@echo INSTALL_PATH: $(INSTALL_PATH)
 
+## help : Print help message.
 .PHONY: help
 help: Makefile
 	@sed -n 's/^## //p' $< | awk -F':' '{printf "%-30s: %s\n", $$1, $$2'}
