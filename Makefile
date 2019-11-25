@@ -18,9 +18,9 @@ install: $(patsubst %, install_%, $(SRC))
 
 ## uninstall : Uninstall all scripts.
 .PHONY: uninstall
-uninstall: $(INSTALL_PATH)
-	@echo "Uninstalling fzf-bin..."
-	@rm -vf $(INSTALL_PATH)
+uninstall: $(patsubst $(PREFIX)/bin/%, uninstall_%, $(INSTALL_PATH))
+	@echo
+	@echo "Finished uninstalling fzf-bin!"
 
 ## install_SCRIPT : Install individual script.
 install_%: $(SRC_PREFIX)/%
