@@ -23,12 +23,14 @@ uninstall: $(patsubst $(PREFIX)/bin/%, uninstall_%, $(INSTALL_PATH))
 	@echo "Finished uninstalling fzf-bin!"
 
 ## install_SCRIPT : Install individual script.
+.PHONY: install_%
 install_%: $(SRC_PREFIX)/%
 	@echo "Installing $@..."
 	@cp -vp $< $(PREFIX)/bin/$(notdir $(basename $<))
 	@chmod 755 $(PREFIX)/bin/$(notdir $(basename $<))
 
 ## uninstall_SCRIPT : Uninstall individual script.
+.PHONY: uninstall_%
 uninstall_%: $(PREFIX)/bin/%
 	@echo "Uninstalling $<..."
 	@rm -vf $<
