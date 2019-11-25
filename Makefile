@@ -29,13 +29,14 @@ install_%: $(SRC_PREFIX)/%
 	@chmod 755 $(PREFIX)/bin/$(notdir $(basename $<))
 
 ## uninstall_SCRIPT : Uninstall individual script.
-uninstall_%: $(PREFIX)/bin/$(basename %)
+uninstall_%: $(PREFIX)/bin/%
 	@echo "Uninstalling $<..."
 	@rm -vf $<
 
 ## variables : Print variables.
 .PHONY: variables
 variables:
+	@echo SRC_PREFIX: $(SRC_PREFIX)
 	@echo PREFIX: $(PREFIX)
 	@echo SRC: $(SRC)
 	@echo INSTALL_PATH: $(INSTALL_PATH)
