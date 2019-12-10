@@ -15,7 +15,7 @@ extensions='mkv|mp4|mp3|mov'
 
 get_files(){
     if command -v fd > /dev/null; then
-        fd "^.*\.($extensions)" -d "$depth" -t f 
+        fd "^.*\.($extensions)$" -d "$depth" -t f 
     else
         echo "Currently does not work with find!"
     fi
