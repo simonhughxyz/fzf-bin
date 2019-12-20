@@ -1,13 +1,14 @@
 # fzf-bin
 A collection of scripts using the fantastic [fzf utility](https://github.com/junegunn/fzf).
 
-| Script Name   | Language | Description                    |
-|:--------------|:---------|:-------------------------------|
-| `fconf`       | Shell    | Open config file in vim.       |
-| `fgb`         | Shell    | Checkout in chosen git branch. |
-| `fkill`       | Shell    | Kill chosen process.           |
-| `fman`        | Shell    | Open chosen man page.          |
-| `fv`          | Shell    | Cd into chosen directory.      |
+| Script Name     | Language   | Description                      |
+| :-------------- | :--------- | :------------------------------- |
+| `fconf`         | Shell      | Open config file in vim.         |
+| `fgb`           | Shell      | Checkout in chosen git branch.   |
+| `fkill`         | Shell      | Kill chosen process.             |
+| `fman`          | Shell      | Open chosen man page.            |
+| `fv`            | Shell      | Cd into chosen directory.        |
+| `fplay`         | Shell      | Play selected video.             |
 
 
 ## Install
