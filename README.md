@@ -7,7 +7,7 @@ A collection of scripts using the fantastic [fzf utility](https://github.com/jun
 | `fgb`           | Shell      | Checkout in chosen git branch.   |
 | `fkill`         | Shell      | Kill chosen process.             |
 | `fman`          | Shell      | Open chosen man page.            |
-| `fv`            | Shell      | Cd into chosen directory.        |
+| `fv`            | Shell      | Open selected file in editor.    |
 | `fplay`         | Shell      | Play selected video.             |
 
 
