@@ -5,8 +5,9 @@
 #
 # Lists all media (mkv, mp4, mp3 etc) and plays them in mpv.
 # 
-# You can choose max depth of directory in first argument.
-# Default max depth is 5.
+# Options:
+# -e    : Choose extensions to find (have to be seperated by `|`).
+# -d    : Choose directory depth to traverse, default is 5.
 
 extensions='mkv|mp4|mp3|mp2|mov|mpg|mpeg|mpv|mpe|ogg|oga|ogv|m4p|m4v|avi|wmv|mov|qt|flv|gif|webm|aac|wma|flac|alac|wav'
 depth="5"
