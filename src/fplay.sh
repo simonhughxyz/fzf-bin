@@ -3,7 +3,7 @@
 # FPLAY
 # Simon Hugh Moore
 #
-# Lists all video media (mkv, mp4, mp3 etc) and plays them in mpv.
+# Lists all media (mkv, mp4, mp3 etc) and plays them in mpv.
 # 
 # You can choose max depth of directory in first argument.
 # Default max depth is 5.
