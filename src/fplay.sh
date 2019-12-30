@@ -8,7 +8,7 @@
 # You can choose max depth of directory in first argument.
 # Default max depth is 5.
 
-extensions='mkv|mp4|mp3|mp2|mov|mpg|mpeg|mpv|mpe|ogg|oga|ogv|m4p|m4v|avi|wmv|mov|qt|flv|gif|webm'
+extensions='mkv|mp4|mp3|mp2|mov|mpg|mpeg|mpv|mpe|ogg|oga|ogv|m4p|m4v|avi|wmv|mov|qt|flv|gif|webm|aac|wma|flac|alac|wav'
 
 # get max depth to traverse for files.
 [ $1 ] && depth="$1" || depth="5"
